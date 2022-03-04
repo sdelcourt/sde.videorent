@@ -1,0 +1,3 @@
+graft src/sde
+graft docs/
+include *.cfg *.rst *.in

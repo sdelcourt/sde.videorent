@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="sde.videorent"
+    interface="sde.videorent.interfaces.ISdeVideorentLayer"
+  />
+</layers>
