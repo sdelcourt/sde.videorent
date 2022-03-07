@@ -101,7 +101,7 @@ Design & plan
 
 After considering the problem descrition, I thought it would be best to separate the "film" as an asbtract concept from its physical support (DVD, VHS) which is rented.
 
-The solution would use 4 objects:
+The solution will use 4 objects:
 
 - Customer: a person signaletic + an attribute "bonus points".
 - Film: a generic film description + an attribute "release type" (new, old, regular).
