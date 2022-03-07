@@ -108,7 +108,7 @@ The solution would use 4 objects:
 - VideoCopy : the physical support of the film, different VideoCopies can refers to the same film. The video copy has a unique reference to identify the physical object (codebar or QR code).
 - The rental: represents a rent of several VideoCopies (with different durations) from a Customer at a given "start date". The rental should be able to compute the rental price, keep track of which VideoCopy has been returned or not, compute the late delays by comparing the rental date to today's date and compute the late fees of each copy that has not been returned.
 
-At the first save of the rental, an event will update the customer bonus points.
+At the first save of a rental, an event will update the customer bonus points.
 
 Each object types are grouped in 4 individual folders the site root.
 
