@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
 <metadata>
   <version>1</version>
+  <dependencies>
+    <dependency>profile-collective.z3cform.datagridfield:default</dependency>
+    <dependency>profile-plone.formwidget.autocomplete:default</dependency>
+    <dependency>profile-plone.restapi:default</dependency>
+  </dependencies>
 </metadata>
