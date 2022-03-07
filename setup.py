@@ -42,6 +42,9 @@ setup(
     zip_safe=False,
     install_requires=[
         'plone.api',
+        'plone.app.contenttypes',
+        'plone.restapi',
+        'collective.z3cform.datagridfield',
         'setuptools',
     ],
     extras_require={

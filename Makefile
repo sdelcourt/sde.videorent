@@ -7,7 +7,7 @@ all: run
 
 .PHONY: setup
 setup:
-	virtualenv --python=/srv/python-2.7.16/bin/python2.7 .
+	virtualenv-2.7 .
 	./bin/pip install --upgrade pip
 	./bin/pip install -r requirements.txt
 
