@@ -13,19 +13,21 @@ Prerequisites
 You need the python2.7 virtualenv command under the alias ``virtualenv-2.7``
 
 If you already have a 2.7 virtualenv, in a terminal do: 
+
   ``sudo ln -s /path-to-python2.7-virtualanv/bin/virtualenv /usr/local/bin/virtualenv-2.7``
 
 to create the alias.
 And skip this section.
 
-Install a new python 2.7 that will be used for our virtualenv. Open a terminal
-``cd ~``
-``wget http://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz``
-``tar xvzf Python-2.7.16.tgz``
-``cd Python-2.7.16``
-``./configure --prefix=~/python2716``
-``make``
-``make install``
+Install a new python 2.7 that will be used for our virtualenv. Open a terminal::
+
+  cd ~
+  wget http://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz
+  tar xvzf Python-2.7.16.tgz
+  cd Python-2.7.16
+  ./configure --prefix=~/python2716
+  make
+  make install
 
 Install pip::
 
@@ -34,9 +36,11 @@ Install pip::
   bin/python2.7 get-pip.py
 
 Install virtualenv
+
   ``bin/pip install virtualenv``
 
 Create the alias
+
   ``sudo ln -s ~/python2716/bin/virtualenv /usr/local/bin/virtualenv-2.7``
 
 Close the the terminal and open it again. If you type virtualenv and then push tab you should see ``virtualenv-2.7`` in the commands list.
