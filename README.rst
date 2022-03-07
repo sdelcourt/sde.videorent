@@ -16,8 +16,8 @@ If you already have a 2.7 virtualenv, in a terminal do::
 
   sudo ln -s /path-to-python2.7-virtualenv/bin/virtualenv /usr/local/bin/virtualenv-2.7
 
-to create the alias.
-And skip this section.
+to create the alias .
+Skip the rest of this section and directly go to "Install".
 
 Install a new python 2.7 that will be used for our virtualenv. Open a terminal::
 
@@ -46,8 +46,8 @@ Create the alias::
 Close the the terminal and open it again. If you type virtualenv and then push tab you should see ``virtualenv-2.7`` in the commands list.
 
 
-Deployment
-----------
+Install
+-------
 
 Clone this git project. In a terminal do::
 
@@ -56,7 +56,7 @@ Clone this git project. In a terminal do::
   cd sde.videorent
   make
 
-We use buildout to deploy plone and its dependencies. The first run should take some time, grab a cup of your favourite hot drink meanwhile ;) .
+We use buildout to deploy plone and its dependencies. The first run should take some time so grab a cup of your favourite hot drink meanwhile ;) .
 If everything goes well, it will end the installation by running the server. You should see something like::
 
   2022-03-07 06:07:28 INFO ZServer HTTP server started at Mon Mar  7 06:07:28 2022
@@ -85,3 +85,5 @@ Finally, push on "Créer le site plone" at the bottom for form.
 
 You will end up on the front page of the videorent app.
 You can now disconnect (right top corner) and reconnect with the user/password manager/manager to start using the app.
+
+For the next use, all you have to do is to go to ``~/sde.videorent``, call ``make`` again (or ``bin/instance``) and go to ``http://localhost:8081/Plone``.
