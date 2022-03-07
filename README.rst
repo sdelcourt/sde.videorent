@@ -14,7 +14,7 @@ You need the python2.7 virtualenv command under the alias ``virtualenv-2.7``
 
 If you already have a 2.7 virtualenv, in a terminal do::
 
-  sudo ln -s /path-to-python2.7-virtualanv/bin/virtualenv /usr/local/bin/virtualenv-2.7
+  sudo ln -s /path-to-python2.7-virtualenv/bin/virtualenv /usr/local/bin/virtualenv-2.7
 
 to create the alias.
 And skip this section.
