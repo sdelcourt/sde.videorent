@@ -10,7 +10,7 @@ Installation
 Prerequisites
 -------------
 
-You need the python2.7 virtualenv command under the alias ``virtualenv-2.7``
+You need a python2.7 virtualenv command under the alias ``virtualenv-2.7``
 
 If you already have a 2.7 virtualenv, in a terminal do::
 
@@ -86,7 +86,7 @@ Finally, push on "Créer le site plone" at the bottom for form.
 You will end up on the front page of the videorent app.
 You can now disconnect (right top corner) and reconnect with the user/password manager/manager to start using the app.
 
-For the next use, all you have to do is to go to ``~/sde.videorent``, call ``make`` again (or ``bin/instance``) and go to ``http://localhost:8081/Plone``.
+For the next use, all you have to do is to go to ``~/sde.videorent``, call ``make`` again (or ``bin/instance fg``) and go to ``http://localhost:8081/Plone``.
 
 
 Thoughts
@@ -99,14 +99,14 @@ Because it is the python framework I'm the most comfortable with. Maybe django o
 Design & plan
 -------------
 
-After considering the problem descrition, I thought it would be best to separate the "film" as an asbtract concept from its physical support (DVD, VHS) which is rented.
+After considering the problem descrition, I thought it would be best to separate the "film" as an abstract concept from its physical support (DVD, VHS) which is rented.
 
 The solution will use 4 objects:
 
 - Customer: a person signaletic + an attribute "bonus points".
 - Film: a generic film description + an attribute "release type" (new, old, regular).
-- VideoCopy : the physical support of the film, different VideoCopies can refers to the same film. The video copy has a unique reference to identify the physical object (codebar or QR code).
-- The rental: represents a rent of several VideoCopies (with different durations) from a Customer at a given "start date". The rental should be able to compute the rental price, keep track of which VideoCopy has been returned or not, compute the late delays by comparing the rental date to today's date and compute the late fees of each copy that has not been returned.
+- VideoCopy : the physical support of the film, different VideoCopies can refers to the same film. The video copy has a unique reference to identify the physical object (barcode or QR code).
+- The rental: represents a rent of several VideoCopies (for different rent durations) from a Customer at a given "start date". The rental should be able to compute the rental price, keep track of which VideoCopy has been returned or not, compute the late delays by comparing the rental date to today's date and compute the late fees of each copy that has not been returned.
 
 At the first save of a rental, an event will update the customer bonus points.
 
