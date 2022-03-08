@@ -4,8 +4,8 @@
 from sde.videorent.testing import IntegrationTestCase
 
 
-class TestInstall(IntegrationTestCase):
-    """Test installation of sde.videorent into Plone."""
+class TestCustomer(IntegrationTestCase):
+    """Test Customer content type."""
 
     def setUp(self):
         """Custom shared utility setup for tests."""
