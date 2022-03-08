@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="sde.videorent">
+
+  <utility
+    component=".vocabularies.ReleaseTypesVocabularyFactory"
+    name="videorent.vocabularies.release_types"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+  <utility
+    component=".vocabularies.PhysicalSupportTypeVocabularyFactory"
+    name="videorent.vocabularies.physical_supports"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+  <utility
+    component=".vocabularies.VideoCopiesVocabularyFactory"
+    name="videorent.vocabularies.video_copies"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+</configure>
