@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 """Base module for unittesting."""
 
-from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import login
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
 from plone.testing import z2
 
-import unittest2 as unittest
+from sde.videorent.profiles.testing.mock_data import TEST_USER_NAME
+
+import unittest
 
 import sde.videorent
 
@@ -21,8 +19,10 @@ import sde.videorent
 class SdeVideorentLayer(PloneSandboxLayer):
 
     defaultBases = (PLONE_FIXTURE,)
-    products = ('sde.videorent',
-               )
+    products = (
+        'sde.videorent',
+        'collective.z3cform.datagridfield',
+    )
 
     def setUpZope(self, app, configurationContext):
         """Set up Zope."""
@@ -34,14 +34,19 @@ class SdeVideorentLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         """Set up Plone."""
+        # Set language to 'fr'
+        ltool = portal.portal_languages
+        defaultLanguage = 'fr'
+        supportedLanguages = ['en', 'fr']
+        ltool.manage_setLanguageSettings(defaultLanguage, supportedLanguages,
+                                         setUseCombinedLanguageCodes=False)
+        portal.portal_languages.setLanguageBindings()
+
         # Install into Plone site using portal_setup
         applyProfile(portal, 'sde.videorent:testing')
 
-        # Login and create some test content
-        setRoles(portal, TEST_USER_ID, ['Manager'])
+        # Login
         login(portal, TEST_USER_NAME)
-        folder_id = portal.invokeFactory('Folder', 'folder')
-        portal[folder_id].reindexObject()
 
         # Commit so that the test browser sees these objects
         import transaction
@@ -68,12 +73,6 @@ FUNCTIONAL = FunctionalTesting(
     bases=(FIXTURE,),
     name="FUNCTIONAL"
     )
-
-
-ACCEPTANCE = FunctionalTesting(bases=(FIXTURE,
-                                      AUTOLOGIN_LIBRARY_FIXTURE,
-                                      z2.ZSERVER_FIXTURE),
-                               name="ACCEPTANCE")
 
 
 class IntegrationTestCase(unittest.TestCase):
