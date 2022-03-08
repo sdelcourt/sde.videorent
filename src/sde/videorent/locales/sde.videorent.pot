@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-03-06 16:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: sde.videorent\n"
+
+#: ../vocabularies.py:54
+msgid "Choose"
+msgstr ""
+
+#: ../setuphandlers.py:52
+msgid "Copies"
+msgstr ""
+
+#: ../setuphandlers.py:53
+msgid "Customers"
+msgstr ""
+
+#: ../setuphandlers.py:51
+msgid "Films"
+msgstr ""
+
+#: ../profiles.zcml:29
+msgid "Installs the sde.videorent add-on and add some demo data"
+msgstr ""
+
+#: ../profiles.zcml:14
+msgid "Installs the sde.videorent add-on."
+msgstr ""
+
+#: ../setuphandlers.py:50
+msgid "Rentals"
+msgstr ""
+
+#: ../testing.zcml:14
+msgid "Steps to ease tests of sde.videorent"
+msgstr ""
+
+#: ../profiles.zcml:14
+msgid "VideoRent"
+msgstr ""
+
+#: ../profiles.zcml:29
+msgid "VideoRent demo"
+msgstr ""
+
+#. Default: "Address"
+#: ../content/customer.py:35
+msgid "label_address"
+msgstr ""
+
+#. Default: "Bonus points"
+#: ../content/customer.py:29
+msgid "label_bonus_points"
+msgstr ""
+
+#. Default: "City"
+#: ../content/customer.py:40
+msgid "label_city"
+msgstr ""
+
+#. Default: "Copy reference"
+#: ../content/physical_copy/video.py:23
+msgid "label_copy_reference"
+msgstr ""
+
+#. Default: "Customer"
+#: ../content/rental.py:75
+msgid "label_customer"
+msgstr ""
+
+#. Default: "Duration"
+#: ../content/rental.py:36
+msgid "label_duration"
+msgstr ""
+
+#. Default: "E-mail"
+#: ../content/customer.py:50
+msgid "label_email"
+msgstr ""
+
+#. Default: "Fee"
+#: ../content/rental.py:63
+msgid "label_fee"
+msgstr ""
+
+#. Default: "Film"
+#: ../content/physical_copy/video.py:29
+#: ../content/rental.py:30
+msgid "label_film"
+msgstr ""
+
+#. Default: "Firstname"
+#: ../content/customer.py:24
+msgid "label_firstname"
+msgstr ""
+
+#. Default: "Late days"
+#: ../content/rental.py:58
+msgid "label_late_days"
+msgstr ""
+
+#. Default: "Late fees"
+#: ../content/rental.py:100
+msgid "label_late_fees"
+msgstr ""
+
+#. Default: "Name"
+#: ../content/customer.py:19
+msgid "label_name"
+msgstr ""
+
+#. Default: "Phone"
+#: ../content/customer.py:45
+msgid "label_phone"
+msgstr ""
+
+#. Default: "price"
+#: ../content/rental.py:94
+msgid "label_price"
+msgstr ""
+
+#. Default: "Release type"
+#: ../content/media/film.py:18
+#: ../content/physical_copy/video.py:35
+msgid "label_release_type"
+msgstr ""
+
+#. Default: "Rented"
+#: ../content/rental.py:88
+msgid "label_rented"
+msgstr ""
+
+#. Default: "Returned"
+#: ../content/rental.py:42
+msgid "label_returned"
+msgstr ""
+
+#. Default: "Start date"
+#: ../content/rental.py:81
+msgid "label_start_date"
+msgstr ""
+
+#. Default: "Total fees"
+#: ../content/rental.py:106
+msgid "label_total_fees"
+msgstr ""
+
+msgid "new"
+msgstr ""
+
+msgid "old"
+msgstr ""
+
+msgid "regular"
+msgstr ""
+
+#: ../testing.zcml:14
+msgid "sde.videorent tests"
+msgstr ""
