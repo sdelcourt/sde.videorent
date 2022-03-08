@@ -83,3 +83,35 @@ def _disable_portlets(context):
                 category,
                 assignment_manager.getBlacklistStatus(category)
             )
+
+
+def create_test_objects(context):
+    if context.readDataFile("sdevideorent_test_marker.txt") is None:
+        return
+
+    site = api.portal.get()
+
+    customers_folder = site.customers
+    for line in mock_data.customers:
+        api.content.create(type='Customer', container=customers_folder, **line)
+
+    films_folder = site.films
+    for line in mock_data.films:
+        api.content.create(type='Film', container=films_folder, **line)
+
+    copies_folder = site.copies
+    for line in mock_data.copies:
+        film = getattr(films_folder, line['film_id'])
+        line['film'] = film.UID()
+        api.content.create(type='VideoCopy', container=copies_folder, **line)
+
+    rentals_folder = site.rentals
+    for line in mock_data.rentals:
+        customer = getattr(customers_folder, line['customer_id'])
+        line['customer'] = customer.UID()
+        for rent in line['rented']:
+            copy = getattr(copies_folder, rent['copy_id'])
+            rent['video_copy'] = copy.UID()
+        api.content.create(type='Rental', container=rentals_folder, **line)
+
+    api.user.create(**mock_data.test_user)
