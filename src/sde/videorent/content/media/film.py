@@ -14,6 +14,13 @@ class IFilm(model.Schema):
     Film zope schema.
     """
 
+    release_type = schema.Choice(
+        title=_(u'label_release_type', default='Release type'),
+        vocabulary='videorent.vocabularies.release_types',
+        required=True,
+        default='regular',
+    )
+
 
 @implementer(IFilm)
 class Film(Item):
