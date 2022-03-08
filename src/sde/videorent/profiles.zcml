@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="sde.videorent">
+
+    <include package="Products.GenericSetup" file="meta.zcml" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="VideoRent"
+        directory="profiles/default"
+        description="Installs the sde.videorent add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:importStep
+        name="sdevideorent-postInstall"
+        title="sde.videorent post_install import step"
+        description="Post install import step from sde.videorent"
+        handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
+    <genericsetup:registerProfile
+        name="demo"
+        title="VideoRent demo"
+        directory="profiles/demo"
+        description="Installs the sde.videorent add-on and add some demo data"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:importStep
+        name="sdevideorent-AddDemo"
+        title="sde.videorent demo import step"
+        description="Add demo import step from sde.videorent"
+        handler=".setuphandlers.create_test_objects">
+    </genericsetup:importStep>
+
+</configure>

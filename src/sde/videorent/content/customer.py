@@ -57,3 +57,20 @@ class Customer(Item):
     """
     Customer class
     """
+
+    def Title(self):
+        title = '{} - {}: {}'.format(
+            self.summary,
+            translate(_(u'label_bonus_points', default='Bonus points'), context=self.REQUEST),
+            str(self.bonus_points),
+        )
+        return title
+
+    @property
+    def summary(self):
+        summary = '{} {} ({})'.format(
+            self.name,
+            self.firstname,
+            self.city,
+        )
+        return summary
