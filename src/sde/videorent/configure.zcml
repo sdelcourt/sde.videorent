@@ -12,15 +12,18 @@
 
     <include package="collective.z3cform.datagridfield" />
     <include package="plone.api" />
+    <include package="plone.app.contenttypes" />
     <include package="plone.formwidget.autocomplete" />
     <include package="plone.restapi" />
-    <include package="plone.app.contenttypes" />
+
     <include package=".browser" />
     <include package=".content" />
     <include package=".events" />
+    <include package=".restapi" />
 
-    <include file="vocabularies.zcml" />
+    <include file="indexes.zcml" />
     <include file="profiles.zcml" />
+    <include file="vocabularies.zcml" />
 
     <cmf:registerDirectory
         name="videorent_images"/>
