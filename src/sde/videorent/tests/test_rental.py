@@ -92,9 +92,16 @@ class TestRental(FunctionalTestCase):
 
     def test_rental_price(self):
         """ Test Rental price method."""
-        # new release, 1 day -> 1 * 4 = 4
-        # regular release, 5 days ->  3 + 2 * 3 = 9
-        # regular release, 2 days -> 3 = 3
-        # old release, 7 day -> 3 + 2 * 3 = 9
+        rental = self.rental
+        # c1 new release, 1 day -> 1 * 4 = 4
+        # c3 regular release, 5 days ->  3 + 2 * 3 = 9
+        # c4 regular release, 2 days -> 3 = 3
+        # c5 old release, 7 day -> 3 + 2 * 3 = 9
         # total = 4 + 9 + 3 + 9 = 25
         self.assertEquals(self.rental.price, 25)
+
+        # augment the duration of c1 by 2 days and c3 by 5 days
+        # new total should be 25 + 8 + 15 = 48
+        rental.rented[0]['duration'] = 3
+        rental.rented[1]['duration'] = 10
+        self.assertEquals(self.rental.price, 48)
