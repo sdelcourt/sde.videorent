@@ -3,15 +3,6 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:zcml="http://namespaces.zope.org/zcml">
 
-  <!-- POST rental -->
-  <plone:service
-    method="POST"
-    for="sde.videorent.content.rental.IRental"
-    factory=".rental.RentalPost"
-    name="@rental"
-    layer="sde.videorent.interfaces.ISdeVideorentLayer"
-    permission="cmf.AddPortalContent" />
-
   <!-- PATCH rental -->
   <plone:service
     method="PATCH"
