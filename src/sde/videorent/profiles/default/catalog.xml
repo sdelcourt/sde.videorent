@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+  <index name="rented_video_copies"
+           meta_type="KeywordIndex">
+    <indexed_attr value="rented_video_copies"/>
+  </index>
+  <column value="rented_video_copies"/>
+
+</object>
