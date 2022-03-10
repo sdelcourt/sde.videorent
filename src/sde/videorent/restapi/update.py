@@ -13,14 +13,17 @@ import json
 
 @implementer(IPublishTraverse)
 class RentedPatch(Service):
-    """Update the rented attribute of a rental with returned VideoCopies."""
+    """
+    Update the rented attribute of all the rentals having
+    the returned VideoCopies still to be returned.
+    """
 
     def __init__(self, context, request):
         super(Service, self).__init__(context, request)
         self.params = []
 
     def reply(self):
-        copies_to_return = json.loads(self.request.get("BODY", "{}"))
+        copies_to_return = json.loads(self.request.get("BODY", "[]"))
         catalog = api.portal.get_tool('portal_catalog')
         rental_brains = catalog(rented_video_copies=copies_to_return)
 

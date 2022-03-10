@@ -67,6 +67,7 @@ def create_app_folders(context):
         folder.setConstrainTypesMode(1)
         folder.setLocallyAllowedTypes(allowed_types)
         folder.setImmediatelyAddableTypes(allowed_types)
+        folder.manage_addLocalRoles("manager", ("Contributor",  "Reader", ))
         folder.reindexObject(idxs=['Title', 'sortable_title'])
         _disable_portlets(folder)
 

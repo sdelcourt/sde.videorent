@@ -70,7 +70,7 @@ INTEGRATION = IntegrationTesting(
 
 
 FUNCTIONAL = FunctionalTesting(
-    bases=(FIXTURE,),
+    bases=(FIXTURE, z2.ZSERVER_FIXTURE),
     name="FUNCTIONAL"
     )
 
