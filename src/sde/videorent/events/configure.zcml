@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="sde.videorent">
+
+  <subscriber for="sde.videorent.content.rental.IRental
+                   zope.lifecycleevent.IObjectCreatedEvent"
+               handler=".rental_events.update_customer_bonus_points" />
+
+</configure>
