@@ -107,13 +107,22 @@ For the next use, all you have to do is to go to ``~/sde.videorent``, call ``mak
 Use
 ===
 
-Run the instance
-----------------
- ``cd~/sde.videorent``,
- ``bin/instance fg``)
+Run the instance::
+------------------
+   cd~/sde.videorent
+   bin/instance fg
 
- and go to ``http://localhost:8081/Plone``. Login with manager/manager
+and go to ``http://localhost:8081/Plone``. Login with manager/manager
 
+
+Run the tests::
+---------------
+
+   bin/tests
+
+Test coverage with::
+
+   bin/createcoverage
 
 Restapi
 -------
