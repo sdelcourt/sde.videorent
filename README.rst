@@ -3,12 +3,27 @@ sde.videorent
 
 Implementation of simple video rental usecase based on plone 4.3.20
 
+Sections
+========
+
+- `Installation`_
+- `Use`_
+- `Thoughts`_
+
 
 Installation
 ============
 
 Prerequisites
 -------------
+
+You may need to install following libraries::
+
+  apt-get install build-essential
+  apt-get install libreadline5-dev
+  apt-get install zlib1g-dev (support zlib)
+  apt-get install libjpeg62-dev
+  apt-get install libpq-dev
 
 You need a python2.7 virtualenv command under the alias ``virtualenv-2.7``
 
@@ -89,6 +104,22 @@ You can now disconnect (right top corner) and reconnect with the user/password m
 For the next use, all you have to do is to go to ``~/sde.videorent``, call ``make`` again (or ``bin/instance fg``) and go to ``http://localhost:8081/Plone``.
 
 
+Use
+===
+
+Run the instance
+----------------
+ ``cd~/sde.videorent``,
+ ``bin/instance fg``)
+
+ and go to ``http://localhost:8081/Plone``. Login with manager/manager
+
+
+Restapi
+-------
+
+
+
 Thoughts
 ========
 
@@ -99,7 +130,7 @@ Because it is the python framework I'm the most comfortable with. Maybe django o
 Design & plan
 -------------
 
-After considering the problem descrition, I thought it would be best to separate the "film" as an abstract concept from its physical support (DVD, VHS) which is rented.
+After considering the problem description, I thought it would be best to separate the "film" as an abstract concept from its physical support (DVD, VHS) which is rented.
 
 The solution will use 4 objects:
 
@@ -122,4 +153,78 @@ I want to focus as much as possible on the business logic and use the default pl
 
 I also want to have an automated setup of test objects to use for a demo profile and for the unittest.
 
-I wont focus much on the UI and search queries.
+The sde.videorent.restapi will extend the existing plone restapi with two custom endpoints.
+
+POST @rental::
+
+   import requests
+
+   url = 'http://localhost:8081/Plone/rentals/@rental'
+   headers = {'Accept': 'application/json','content-type': 'application/json','authorization': 'Basic YWRtaW46YWRtaW4='}
+   body = """{
+       "customer": "95a5d330c7744e3b828c9e5739413923",
+        "rented":[
+            {"video_copy": "862a923a5af2473b8ff74def29a334f9", "duration": 5},
+            {"video_copy": "5fa5b52964bd4279b6959cfdcfa83df2", "duration": 5}
+        ]
+   }"""
+
+   req = requests.post(url, headers=headers, data=body)
+
+   rint(req.status_code)
+   print(req.headers)
+   print(req.text)
+
+Input: a dict with the Customer UID and a list rented with each rented VideoCopy and the rent duration.
+Returns: the created Rental object json
+It also update the Customer with the Rental total bonus points.
+
+PATCH @rented::
+
+  import requests
+
+  url = 'http://localhost:8081/Plone/rentals/@rented'
+  headers = {'Accept': 'application/json','content-type': 'application/json','authorization': 'Basic bWFuYWdlcjptYW5hZ2Vy'}
+  body = """["862a923a5af2473b8ff74def29a334f9"]"""
+
+  req = requests.patch(url, headers=headers, data=body)
+
+  print(req.status_code)
+  print(req.headers)
+        print(req.text)
+
+Input: a list with the VideoCopies UIDs returned.
+Returns: update all the Rentals where these videos were in status "not returned"
+return a dict with two keys:
+- "rentals" contains the updated rentals
+- "late_fees" contains the late fees info (a video copy was late)
+
+
+To retrieve the customer UIDs and the videocopies UID we can use the default plone restapi GET @search endpoints
+
+Customer GET @search::
+
+   import requests
+
+   url = 'http://localhost:8081/Plone/@search?portal_type=Customer&metadata_fields=UID'
+   headers = {'Accept': 'application/json','authorization': 'Basic bWFuYWdlcjptYW5hZ2Vy'}
+
+   req = requests.get(url, headers=headers)
+  
+   print(req.status_code)
+   print(req.headers)
+   print(req.text)
+
+
+VideoCopy GET @search::
+
+   import requests
+
+   url = 'http://localhost:8081/Plone/@search?portal_type=VideoCopy&metadata_fields=UID'
+   headers = {'Accept': 'application/json','authorization': 'Basic bWFuYWdlcjptYW5hZ2Vy'}
+
+   req = requests.get(url, headers=headers)
+
+   print(req.status_code)
+   print(req.headers)
+   print(req.text)
