@@ -155,7 +155,9 @@ POST @rental::
    print(req.text)
 
 Input: a dict with the Customer UID and a list rented with each rented VideoCopy and the rent duration.
+
 Returns: the created Rental object json
+
 It also update the Customer with the Rental total bonus points.
 
 PATCH @rented::
@@ -173,8 +175,11 @@ PATCH @rented::
         print(req.text)
 
 Input: a list with the VideoCopies UIDs returned.
+
 Returns: update all the Rentals where these videos were in status "not returned"
+
 return a dict with two keys:
+
 - "rentals" contains the updated rentals
 - "late_fees" contains the late fees info (a video copy was late)
 
