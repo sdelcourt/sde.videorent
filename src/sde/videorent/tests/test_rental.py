@@ -88,7 +88,7 @@ class TestRental(FunctionalTestCase):
     def test_rental_bonus_points(self):
         """ Test Rental bonus_points method."""
         # bonus should be 5: 2 * 1 new release + 1 * 3 old/regular releases
-        self.assertEquals(self.rental.bonus_points(), 5)
+        self.assertEquals(self.rental.bonus_points, 5)
 
     def test_rental_price(self):
         """ Test Rental price method."""

@@ -14,8 +14,31 @@ import json
 @implementer(IPublishTraverse)
 class RentedPatch(Service):
     """
-    Update the rented attribute of all the rentals having
-    the returned VideoCopies still to be returned.
+    @params:
+    [
+        "returned_video_copy_1_UID", ...,  "returned_video_copy_n_UID"
+    ]
+    @return:
+    {
+        "rentals": [
+            updated Rentals where video_copy_x_UIDs were in status "not returned"
+            these video_copies have now the status "returned"
+        ],
+        "late_fees": [
+            {
+                "video_copy": "late_video_copy_1_UID",
+                "late_days": late_days,
+                "fee", fee,
+            },
+            ...
+            {
+                "video_copy": "late_video_copy_n_UID",
+                "late_days": late_days,
+                "fee", fee,
+            },
+        ]
+
+    if a video copy is not returned late, it wont appear in late_fees
     """
 
     def __init__(self, context, request):
