@@ -91,7 +91,12 @@ class IRental(model.Schema):
     )
 
     price = schema.Int(
-        title=_(u'label_price', default=u'price'),
+        title=_(u'label_price', default=u'Price'),
+        readonly=True,
+    )
+
+    bonus_points = schema.Int(
+        title=_(u'label_bonus_points', default=u'Bonus points'),
         readonly=True,
     )
 
@@ -153,6 +158,7 @@ class Rental(Item):
             if line['video_copy'] in video_copies:
                 line['returned'] = True
 
+    @property
     def bonus_points(self):
         """
         Compute bonus points of the rental.

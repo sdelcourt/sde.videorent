@@ -8,5 +8,5 @@ def update_customer_bonus_points(rental, event):
     """
     customer = rental.get_customer()
     if customer:
-        customer.bonus_points += rental.bonus_points()
+        customer.bonus_points += rental.bonus_points
         customer.reindexObject()
