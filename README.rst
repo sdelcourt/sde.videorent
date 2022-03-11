@@ -218,7 +218,7 @@ Thoughts
 
 Why Plone ?
 -----------
-Because Plone is my work framework, its use greatly improved my productivity for this exercise. It also allowed me to transfer the business logic of the endpoints to the python classes of the content types I created. It also allowed me to provides forms and view to explore and vizualise the objects manipulated by the restapi endpoints. Fastapi would have been a more suitable choice for simplicity reasons.
+Because Plone is my work framework, its use greatly improved my productivity for this exercise. It also allowed me to transfer the business logic of the endpoints to the python classes of the content types I created. It also allowed me to provides forms and views to explore and vizualise the objects manipulated by the restapi endpoints. Fastapi would have been a more suitable choice for simplicity reasons.
 
 Design & plan
 -------------
