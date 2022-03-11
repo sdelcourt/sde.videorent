@@ -118,41 +118,6 @@ Run the instance
 Restapi
 -------
 
-
-
-Thoughts
-========
-
-Why Plone ?
------------
-Because it is the python framework I'm the most comfortable with. Maybe django or fastapi would be a more suitable choice but I would not be able to deliver the same result within this time frame.
-
-Design & plan
--------------
-
-After considering the problem description, I thought it would be best to separate the "film" as an abstract concept from its physical support (DVD, VHS) which is rented.
-
-The solution will use 4 objects:
-
-- Customer: a person signaletic + an attribute "bonus points".
-- Film: a generic film description + an attribute "release type" (new, old, regular).
-- VideoCopy : the physical support of the film, different VideoCopies can refers to the same film. The video copy has a unique reference to identify the physical object (barcode or QR code).
-- The rental: represents a rent of several VideoCopies (for different rent durations) from a Customer at a given "start date". The rental should be able to compute the rental price, keep track of which VideoCopy has been returned or not, compute the late delays by comparing the rental date to today's date and compute the late fees of each copy that has not been returned.
-
-At the first save of a rental, an event will update the customer bonus points.
-
-Each object types are grouped in 4 individual folders the site root.
-
-With this design, we should be able to solve the three main problems:
-
-- Have an inventory of films (the Film folder and/or the VideoCopy folder).
-- Calculate the price of rentals.
-- Keep track of the Customer bonus points.
-
-I want to focus as much as possible on the business logic and use the default plone forms and widgets.
-
-I also want to have an automated setup of test objects to use for a demo profile and for the unittest.
-
 The sde.videorent.restapi will extend the existing plone restapi with two custom endpoints.
 
 POST @rental::
@@ -228,3 +193,37 @@ VideoCopy GET @search::
    print(req.status_code)
    print(req.headers)
    print(req.text)
+
+
+Thoughts
+========
+
+Why Plone ?
+-----------
+Because it is the python framework I'm the most comfortable with. Maybe django or fastapi would be a more suitable choice but I would not be able to deliver the same result within this time frame.
+
+Design & plan
+-------------
+
+After considering the problem description, I thought it would be best to separate the "film" as an abstract concept from its physical support (DVD, VHS) which is rented.
+
+The solution will use 4 objects:
+
+- Customer: a person signaletic + an attribute "bonus points".
+- Film: a generic film description + an attribute "release type" (new, old, regular).
+- VideoCopy : the physical support of the film, different VideoCopies can refers to the same film. The video copy has a unique reference to identify the physical object (barcode or QR code).
+- The rental: represents a rent of several VideoCopies (for different rent durations) from a Customer at a given "start date". The rental should be able to compute the rental price, keep track of which VideoCopy has been returned or not, compute the late delays by comparing the rental date to today's date and compute the late fees of each copy that has not been returned.
+
+At the first save of a rental, an event will update the customer bonus points.
+
+Each object types are grouped in 4 individual folders the site root.
+
+With this design, we should be able to solve the three main problems:
+
+- Have an inventory of films (the Film folder and/or the VideoCopy folder).
+- Calculate the price of rentals.
+- Keep track of the Customer bonus points.
+
+I want to focus as much as possible on the business logic and use the default plone forms and widgets.
+
+I also want to have an automated setup of test objects to use for a demo profile and for the unittest.
