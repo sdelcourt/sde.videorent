@@ -107,16 +107,21 @@ For the next use, all you have to do is to go to ``~/sde.videorent``, call ``mak
 Use
 ===
 
-Run the instance::
+Run the instance
 ------------------
+
+Start the instance with::
+
    cd~/sde.videorent
    bin/instance fg
 
 and go to ``http://localhost:8081/Plone``. Login with manager/manager
 
 
-Run the tests::
----------------
+Tests
+-----
+
+Run the unittests with::
 
    bin/tests
 
