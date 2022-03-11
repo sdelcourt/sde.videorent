@@ -181,8 +181,7 @@ Returns: update all the Rentals where these videos were in status "not returned"
 return a dict with two keys:
 
 - "rentals" contains the updated rentals
-- "late_fees" contains the late fees info (a video copy was late)
-
+- "late_fees" contains the late fees info all the late videocopies
 
 To retrieve the customer UIDs and the videocopies UID we can use the default plone restapi GET @search endpoints
 
@@ -219,7 +218,7 @@ Thoughts
 
 Why Plone ?
 -----------
-Because it is the python framework I'm the most comfortable with. Maybe django or fastapi would be a more suitable choice but I would not be able to deliver the same result within this time frame.
+Because Plone is my work framework, its use grtealy improved my productivity for this exercise. It also allowed me to transfer the business logic of the endpoints to the python classes of the content types I created. It also allowed me to provides forms and view to explore and vizualise the objects manipulated by the restapi endpoints. Fastapi would have been a more suitable choice for simplicity reasons.
 
 Design & plan
 -------------
@@ -242,7 +241,5 @@ With this design, we should be able to solve the three main problems:
 - Have an inventory of films (the Film folder and/or the VideoCopy folder).
 - Calculate the price of rentals.
 - Keep track of the Customer bonus points.
-
-I want to focus as much as possible on the business logic and use the default plone forms and widgets.
 
 I also want to have an automated setup of test objects to use for a demo profile and for the unittest.
